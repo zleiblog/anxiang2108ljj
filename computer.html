@@ -25,6 +25,23 @@
             height: auto;
             padding-left: 10px;
         }
+        .view_img{
+          width: auto;
+          height: 100%;
+          border: 0px solid red;
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          z-index: 1000;
+          box-shadow: 0px 0px 1000px 1000px #040404cf;
+          background-color: black;
+          display: none;
+        }
+        .workimg{
+          width: 227px;
+          height: 125px;
+          cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -65,13 +82,31 @@
         <tr>
             <th>科目</th>
             <th>作业截图</th>
+            <th>修改截图</th>
             <th>作业发布时间</th>
         </tr>
         <tr>
             <td>计算机应用</td>
-            <td><img src="https://s1.ax1x.com/2022/11/27/zUPlO1.jpg" alt="图片加载失败！" width="auto" height="200px"></td>
+            <td><img src="https://s1.ax1x.com/2022/11/27/zUPlO1.jpg" alt="图片加载失败！"  onclick="img(this)" class="workimg" title="单击放大图片"></td>
+            <td><img src="https://s1.ax1x.com/2022/11/27/zUuHS0.jpg" alt="图片加载失败！" onclick="img(this)" class="workimg" title="单击放大图片"></td>
             <td>2022年11月27日</td>
         </tr>
     </table>
+
+    <img src="" alt="" class="view_img" onclick="showimg()">
+    <script>
+      var imgWidth;
+      var imgHeight;
+      function img(obj){
+        imgsrc = obj.src;
+        $(".view_img").attr("src", imgsrc);
+        $(".view_img").show();
+        setTimeout(function(){imgWidth=$(".view_img").width();$(".view_img").css("left","calc(50% - " + imgWidth+"px/2)")},1000);
+        setTimeout(function(){imgHeight=$(".view_img").height();$(".view_img").css("top","calc(50% - " + height+"px/2)")},1000);
+      }
+      function showimg(){
+        $(".view_img").hide();
+      }
+    </script>
 </body>
 </html>

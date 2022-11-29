@@ -56,7 +56,7 @@ table {
     top: 0px;
     z-index: 1000000;
     background-color: rgba(0, 0, 0, 0.571);
-    /* overflow: scroll; */
+    overflow: scroll;
     display: none;
 }
 
